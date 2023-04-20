@@ -1,6 +1,7 @@
 FROM python:3.9.10-slim
 
 ENV PYTHONUNBUFFERED=1
+ENV PYTHONDONTWRITEBYTECODE 1
 
 WORKDIR /code
 
@@ -10,6 +11,6 @@ RUN pip install -r requirements.txt
 
 COPY . .
 
-EXPOSE 8080
+EXPOSE 8090
 
-CMD ["python", "manage.py", "runserver"]
+CMD ["python", "manage.py", "runserver", "0.0.0.0:8000"]
